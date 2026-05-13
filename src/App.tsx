@@ -14,13 +14,13 @@ function App() {
       }}
       templateRows="auto 1fr"
     >
-      <GridItem area={"nav"} bg="black" color="white" borderBottom="1px solid white">
+      <GridItem area={"nav"} bg="panel" color="fg" borderBottom="1px solid" borderColor="border">
         <NavBar />
       </GridItem>
-      <GridItem area={"aside"} bg="black" color="white" borderRight="1px solid white" hideBelow="lg">
+      <GridItem area={"aside"} bg="panel" color="fg" borderRight="1px solid" borderColor="border" hideBelow="lg">
         Aside
       </GridItem>
-      <GridItem area={"main"} bg="white" color="black">
+      <GridItem area={"main"} bg="bg" color="fg">
         Main
       </GridItem>
     </Grid>

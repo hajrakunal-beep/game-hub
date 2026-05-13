@@ -3,8 +3,8 @@ import { createSystem, defaultConfig } from "@chakra-ui/react";
 const theme = createSystem(defaultConfig, {
   globalCss: {
     "html, body": {
-      background: "black",
-      color: "white",
+      background: "bg",
+      color: "fg",
     },
   },
   theme: {
@@ -17,10 +17,36 @@ const theme = createSystem(defaultConfig, {
     semanticTokens: {
       colors: {
         bg: {
-          DEFAULT: { value: "{colors.black}" },
+          DEFAULT: {
+            value: {
+              base: "{colors.white}",
+              _dark: "{colors.black}",
+            },
+          },
         },
         fg: {
-          DEFAULT: { value: "{colors.white}" },
+          DEFAULT: {
+            value: {
+              base: "{colors.black}",
+              _dark: "{colors.white}",
+            },
+          },
+        },
+        panel: {
+          DEFAULT: {
+            value: {
+              base: "{colors.gray.50}",
+              _dark: "{colors.gray.950}",
+            },
+          },
+        },
+        border: {
+          DEFAULT: {
+            value: {
+              base: "{colors.gray.200}",
+              _dark: "{colors.gray.700}",
+            },
+          },
         },
       },
     },
