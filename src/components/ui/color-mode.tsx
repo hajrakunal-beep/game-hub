@@ -5,10 +5,10 @@ import { ClientOnly, IconButton, Skeleton, Span } from "@chakra-ui/react"
 import { ThemeProvider, useTheme } from "next-themes"
 import type { ThemeProviderProps } from "next-themes"
 import * as React from "react"
-import { LuMoon, LuSun } from "react-icons/lu"
+import { FiMoon, FiSun } from "react-icons/fi"
 
-const MoonIcon = LuMoon as React.ElementType
-const SunIcon = LuSun as React.ElementType
+const MoonIcon = FiMoon as React.ElementType
+const SunIcon = FiSun as React.ElementType
 
 export interface ColorModeProviderProps extends ThemeProviderProps {}
 
