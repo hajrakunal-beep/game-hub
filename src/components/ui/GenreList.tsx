@@ -5,8 +5,9 @@ import GameGenreSkeleton from "./GameGenreSkeleton";
 
 interface GenreListProps {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre?: Genre | null;
 }
-const GenreList = ({ onSelectGenre }: GenreListProps) => {
+const GenreList = ({ selectedGenre, onSelectGenre }: GenreListProps) => {
   const { data, isLoading, error } = useGenres();
   const skeletons = Array.from({ length: 15 }, (_, index) => index);
   // if (isLoading) {
@@ -35,6 +36,7 @@ const GenreList = ({ onSelectGenre }: GenreListProps) => {
               fontSize="lg"
               padding={0}
               _hover={{ textDecoration: "underline" }}
+              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
               onClick={() => onSelectGenre(genre)}
             >
               {genre.name}

@@ -38,7 +38,10 @@ function App() {
         borderColor="border"
         hideBelow="lg"
       >
-        <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)} />
+        <GenreList
+          selectedGenre={selectedGenre}
+          onSelectGenre={(genre) => setSelectedGenre(genre)}
+        />
       </GridItem>
       <GridItem area={"main"} bg="bg" color="fg">
         <Gamegrid selectedGenre={selectedGenre} />
