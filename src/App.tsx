@@ -27,6 +27,7 @@ function App() {
       </GridItem>
       <GridItem
         area={"aside"}
+        padding={2}
         bg="panel"
         color="fg"
         borderRight="1px solid"
