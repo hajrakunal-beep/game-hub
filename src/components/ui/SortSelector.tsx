@@ -1,7 +1,23 @@
-import { Menu, Button, Portal } from "@chakra-ui/react";
+import { Menu, Button, Portal, Text } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
-export const SortSelector = () => {
+interface Props {
+  onSelectSortOrder: (sortOrder: string) => void;
+  sortOrder: string;
+}
+export const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
+  const sortOrders = [
+    { value: "relevance", label: "Relevance" },
+    { value: "-added", label: "Date added" },
+    { value: "name", label: "Name" },
+    { value: "-released", label: "Released date" },
+    { value: "-metacritic", label: "Popularity" },
+    { value: "-rating", label: "Average rating" },
+  ];
+
+  const currentSortOrder = sortOrders.find(
+    (order) => order.value === sortOrder,
+  );
   return (
     <>
       <Menu.Root>
@@ -15,7 +31,8 @@ export const SortSelector = () => {
             _hover={{ bg: "bg", borderColor: "gray.500" }}
             _expanded={{ bg: "bg", borderColor: "gray.500" }}
           >
-            Order by: Relevance
+            <Text as="span">Order by:</Text>
+            <Text as="span">{currentSortOrder?.label || "Relevance"}</Text>
             <BsChevronDown />
           </Button>
         </Menu.Trigger>
@@ -32,12 +49,15 @@ export const SortSelector = () => {
               overflow="hidden"
               zIndex="dropdown"
             >
-              <Menu.Item value="relevance">Relevance</Menu.Item>
-              <Menu.Item value="date added">Date added</Menu.Item>
-              <Menu.Item value="name">Name</Menu.Item>
-              <Menu.Item value="released date">Released date</Menu.Item>
-              <Menu.Item value="popularity">Popularity</Menu.Item>
-              <Menu.Item value="average rating">Average rating</Menu.Item>
+              {sortOrders.map((order) => (
+                <Menu.Item
+                  onClick={() => onSelectSortOrder(order.value)}
+                  key={order.value}
+                  value={order.value}
+                >
+                  {order.label}
+                </Menu.Item>
+              ))}
             </Menu.Content>
           </Menu.Positioner>
         </Portal>
