@@ -16,7 +16,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: GenreListProps) => {
   if (error) return null;
 
   return (
-    <List.Root>
+    <List.Root w="full">
       {isLoading &&
         skeletons.map((skeleton) => (
           <List.Item key={skeleton}>
@@ -24,17 +24,29 @@ const GenreList = ({ selectedGenre, onSelectGenre }: GenreListProps) => {
           </List.Item>
         ))}
       {data.map((genre) => (
-        <List.Item key={genre.id} padding={2}>
-          <HStack>
+        <List.Item key={genre.id} padding={2} w="full" minW={0}>
+          <HStack align="flex-start" w="full" minW={0}>
             <Image
               boxSize="32px"
+              flexShrink={0}
               borderRadius={8}
               src={getCroppedImageUrl(genre.image_background, 600)}
             />
             <Button
               variant="plain"
+              display="block"
+              flex="1"
               fontSize="lg"
+              height="auto"
+              minW={0}
+              maxW="full"
               padding={0}
+              justifyContent="flex-start"
+              textAlign="left"
+              whiteSpace="normal"
+              overflowWrap="anywhere"
+              wordBreak="break-word"
+              lineHeight="short"
               _hover={{ textDecoration: "underline" }}
               fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
               onClick={() => onSelectGenre(genre)}
