@@ -1,19 +1,7 @@
-import { Button, Menu, Portal } from "@chakra-ui/react";
+import { Menu, Button, Portal } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
-import usePlatforms from "../../hooks/usePlatforms";
-import { Platform } from "../../hooks/useGames";
 
-interface Props {
-  onSelectPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
-}
-export const PlatformSelector = ({
-  onSelectPlatform,
-  selectedPlatform,
-}: Props) => {
-  const { data, error } = usePlatforms();
-  if (error) return null;
-
+export const SortSelector = () => {
   return (
     <>
       <Menu.Root>
@@ -27,7 +15,7 @@ export const PlatformSelector = ({
             _hover={{ bg: "bg", borderColor: "gray.500" }}
             _expanded={{ bg: "bg", borderColor: "gray.500" }}
           >
-            {selectedPlatform?.name || "Platforms"}
+            Order by: Relevance
             <BsChevronDown />
           </Button>
         </Menu.Trigger>
@@ -44,17 +32,12 @@ export const PlatformSelector = ({
               overflow="hidden"
               zIndex="dropdown"
             >
-              {data.map((platform) => (
-                <Menu.Item
-                  onClick={() => onSelectPlatform(platform)}
-                  key={platform.id}
-                  value={platform.slug}
-                  cursor="pointer"
-                  _highlighted={{ bg: "gray.800", color: "white" }}
-                >
-                  {platform.name}
-                </Menu.Item>
-              ))}
+              <Menu.Item value="relevance">Relevance</Menu.Item>
+              <Menu.Item value="date added">Date added</Menu.Item>
+              <Menu.Item value="name">Name</Menu.Item>
+              <Menu.Item value="released date">Released date</Menu.Item>
+              <Menu.Item value="popularity">Popularity</Menu.Item>
+              <Menu.Item value="average rating">Average rating</Menu.Item>
             </Menu.Content>
           </Menu.Positioner>
         </Portal>
@@ -62,5 +45,3 @@ export const PlatformSelector = ({
     </>
   );
 };
-
-export default PlatformSelector;
