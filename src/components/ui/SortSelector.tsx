@@ -24,12 +24,12 @@ export const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
         <Menu.Trigger asChild>
           <Button
             variant="outline"
-            bg="panel"
+            bg="filterControl"
             color="fg"
-            borderColor="border"
+            borderColor="filterControlBorder"
             gap={2}
-            _hover={{ bg: "bg", borderColor: "gray.500" }}
-            _expanded={{ bg: "bg", borderColor: "gray.500" }}
+            _hover={{ bg: "filterControlHover", borderColor: "gray.500" }}
+            _expanded={{ bg: "filterControlHover", borderColor: "gray.500" }}
           >
             <Text as="span">Order by:</Text>
             <Text as="span">{currentSortOrder?.label || "Relevance"}</Text>

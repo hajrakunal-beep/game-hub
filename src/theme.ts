@@ -48,6 +48,30 @@ const theme = createSystem(defaultConfig, {
             },
           },
         },
+        filterControl: {
+          DEFAULT: {
+            value: {
+              base: "{colors.gray.100}",
+              _dark: "{colors.gray.800}",
+            },
+          },
+        },
+        filterControlHover: {
+          DEFAULT: {
+            value: {
+              base: "{colors.gray.200}",
+              _dark: "{colors.gray.700}",
+            },
+          },
+        },
+        filterControlBorder: {
+          DEFAULT: {
+            value: {
+              base: "{colors.gray.300}",
+              _dark: "{colors.gray.600}",
+            },
+          },
+        },
         searchInput: {
           DEFAULT: {
             value: {
