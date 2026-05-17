@@ -48,6 +48,22 @@ const theme = createSystem(defaultConfig, {
             },
           },
         },
+        searchInput: {
+          DEFAULT: {
+            value: {
+              base: "{colors.white}",
+              _dark: "{colors.gray.800}",
+            },
+          },
+        },
+        searchInputBorder: {
+          DEFAULT: {
+            value: {
+              base: "{colors.gray.300}",
+              _dark: "{colors.gray.600}",
+            },
+          },
+        },
       },
     },
   },
