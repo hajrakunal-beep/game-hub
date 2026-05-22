@@ -8,6 +8,7 @@ import PlatformSelector from "./components/ui/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import { SortSelector } from "./components/ui/SortSelector";
 import { GameHeading } from "./components/ui/GameHeading";
+import { LoginPage } from "./LoginPage";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -17,6 +18,12 @@ export interface GameQuery {
 }
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  if (!isLoggedIn) {
+    return <LoginPage onLogin={() => setIsLoggedIn(true)} />;
+  }
 
   return (
     <Grid
